@@ -83,10 +83,6 @@ class PuppeteerMassScreenshots {
         } catch (err) {}
     }
 
-    /* 
-    Learn more here 👇🏻: 
-    https://github.com/shaynet10/puppeteer-mass-screenshots/blob/main/index.js
-    */
     async stop() {
         try {
             await this.client?.send("Page.stopScreencast");
