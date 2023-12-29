@@ -64,6 +64,13 @@ socketIO.on("connection", (socket) => {
                 await page.mouse.click(x, y);
             } catch (err) {}
         });
+
+        socket.on("scroll", ({ position }) => {
+            //scrolls the page
+            page.evaluate((top) => {
+                window.scrollTo({ top });
+            }, position);
+        });
     });
 
     socket.on("disconnect", () => {
