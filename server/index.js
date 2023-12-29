@@ -13,13 +13,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-socketIO.on('connection', (socket) => {
+socketIO.on("connection", (socket) => {
     console.log(`⚡: ${socket.id} user just connected!`);
-    socket.on('disconnect', () => {
-      console.log('🔥: A user disconnected');
+
+    socket.on("browse", async ({ url }) => {
+        console.log("Here is the URL >>>> ", url);
+    });
+
+    socket.on("disconnect", () => {
+        socket.disconnect();
+        console.log("🔥: A user disconnected");
     });
 });
-
 app.get("/api", (req, res) => {
     res.json({
         message: "Hello world",
