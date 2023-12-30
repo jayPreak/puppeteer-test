@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef} from "react";
 import socketIO from "socket.io-client";
-const socket = socketIO.connect("http://localhost:4000");
+const socket = socketIO.connect("https://puppeteer-test-backend.onrender.com");
 
 const Modal = ({ url }) => {
     const ref = useRef(null);

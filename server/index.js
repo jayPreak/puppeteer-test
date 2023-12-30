@@ -20,7 +20,7 @@ socketIO.on("connection", (socket) => {
 
     socket.on("browse", async ({ url }) => {
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
         });
         const context = await browser.createIncognitoBrowserContext();
         const page = await context.newPage();
